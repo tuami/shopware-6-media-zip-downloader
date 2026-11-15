@@ -1,22 +1,9 @@
-// ==UserScript==
-// @name shopware-6-media-zip-downloader
-// @namespace https://github.com/tuami/shopware-6-media-zip-downloader
-// @version 1.0.0
-// @description Markierte Shopware-6-Bilder lokal als ZIP herunterladen.
-// @author tuami
-// @license MIT
-// @match https://shop.example.invalid/admin*
-// @run-at document-idle
-// @grant none
-// @sandbox raw
-// @inject-into page
-// @noframes
-// ==/UserScript==
-
-// Einrichtung: @match oben auf die eigene Shop-Domain und den Admin-Pfad ändern.
-// Nur einmal installieren; keine zusätzliche JavaScript-Bibliothek erforderlich.
+// Shopware 6: ausgewählte Bilder als ZIP herunterladen.
+// Lizenz: MIT – siehe license im Repository.
 (() => {
   "use strict";
+
+  if (window.self !== window.top) return;
 
   const BUTTON_ID = "sw-selected-zip-button";
   const INSTANCE_KEY = "__shopwareMediaZipDownloader";
