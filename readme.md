@@ -2,6 +2,8 @@
 
 Markierte Bilder aus einem Shopware-6-Medienordner gemeinsam als ZIP herunterladen – direkt in der Administration, ohne Serverinstallation und ohne externe JavaScript-Bibliothek.
 
+**Empfehlung für Chrome:** [User JavaScript and CSS im Chrome Web Store](https://chromewebstore.google.com/detail/user-javascript-and-css/nbhcbdghjpllgmfilhnhkllmkecfmpld?pli=1).
+
 **Fiktives Beispiel:** Ordner „Produktbilder“, 12 erfolgreich geladene Bilder:
 
 ```text
@@ -34,7 +36,32 @@ Die Originalnamen und Ordner in Shopware werden **nicht umbenannt**. Im ZIP lieg
 
 Die Auswahl-Seitenleiste wurde mit den öffentlichen Shopware-Quellen abgeglichen. Vue-Interna und DOM-Klassen sind keine stabile Erweiterungsschnittstelle: Änderungen an Shopware, Themes oder Admin-Erweiterungen können Anpassungen erfordern. Es wird keine pauschale Kompatibilität mit sämtlichen Shopware-6-Versionen behauptet.
 
-## Installation: Tampermonkey oder Violentmonkey
+## Empfohlen für Chrome: User JavaScript and CSS
+
+Für Chrome empfehlen wir **User JavaScript and CSS**. Installiere die Erweiterung direkt aus dem
+[Chrome Web Store](https://chromewebstore.google.com/detail/user-javascript-and-css/nbhcbdghjpllgmfilhnhkllmkecfmpld?pli=1).
+
+Weitere Hinweise: [Offizielle Dokumentation](https://tenrabbits.github.io/user-js-css-docs/).
+
+1. Öffne die Administration deines Shops und die Erweiterung.
+2. Erstelle eine neue Regel, beispielsweise mit dem Namen
+   `shopware-media-zip`.
+3. Begrenze die Regel auf deine Domain und den Admin-Pfad, z. B.
+   `https://shop.meine-domain.de/admin*`.
+4. Füge den vollständigen Inhalt der `.user.js`-Datei in das JavaScript-Feld ein.
+   Die Metadaten sind dort normale Kommentare; maßgeblich ist das URL-Muster der Regel.
+5. **Isolated environment deaktivieren.** Sonst sieht das Script zwar die Oberfläche,
+   aber nicht Shopwares JavaScript-Objekte.
+6. **All frames deaktiviert lassen.** Es wird keine zusätzliche CSS-Regel benötigt.
+   Die normale Ausführung nach Aufbau des Dokuments genügt.
+7. Speichern, Regel aktivieren und die Administration neu laden.
+8. Falls JavaScript überhaupt nicht läuft, in den Browserdetails der Erweiterung
+   **Allow User Scripts / Nutzerskripte zulassen** und den Websitezugriff prüfen.
+   Firefox und ältere Chrome-Versionen können andere Freigabedialoge anzeigen.
+
+Verwende nicht gleichzeitig dieselbe Regel und einen Userscript-Manager für dieses Script.
+
+## Alternative: Tampermonkey oder Violentmonkey
 
 1. Installiere **einen** Userscript-Manager über dessen offizielle Website:
    [Tampermonkey](https://www.tampermonkey.net/) oder
@@ -82,29 +109,6 @@ Die Installation per Kopieren vermeidet eine Abhängigkeit von einer bereits
 veröffentlichten Raw-URL. Ein späterer Klick auf eine rohe `.user.js`-Datei kann
 ebenfalls die Installation im Manager öffnen. Eigene Änderungen an `@match`
 bei einem Update prüfen und bei Bedarf erneut setzen.
-
-## Installation: User JavaScript and CSS
-
-Die Erweiterung heißt **User JavaScript and CSS**. Offizielle Informationen und Store-Links:
-[User JS and CSS](https://tenrabbits.github.io/user-js-css-docs/).
-
-1. Öffne die Administration deines Shops und die Erweiterung.
-2. Erstelle eine neue Regel, beispielsweise mit dem Namen
-   `shopware-media-zip`.
-3. Begrenze die Regel auf deine Domain und den Admin-Pfad, z. B.
-   `https://shop.meine-domain.de/admin*`.
-4. Füge den vollständigen Inhalt der `.user.js`-Datei in das JavaScript-Feld ein.
-   Die Metadaten sind dort normale Kommentare; maßgeblich ist das URL-Muster der Regel.
-5. **Isolated environment deaktivieren.** Sonst sieht das Script zwar die Oberfläche,
-   aber nicht Shopwares JavaScript-Objekte.
-6. **All frames deaktiviert lassen.** Es wird keine zusätzliche CSS-Regel benötigt.
-   Die normale Ausführung nach Aufbau des Dokuments genügt.
-7. Speichern, Regel aktivieren und die Administration neu laden.
-8. Falls JavaScript überhaupt nicht läuft, in den Browserdetails der Erweiterung
-   **Allow User Scripts / Nutzerskripte zulassen** und den Websitezugriff prüfen.
-   Firefox und ältere Chrome-Versionen können andere Freigabedialoge anzeigen.
-
-Verwende nicht gleichzeitig dieselbe Regel und einen Userscript-Manager für dieses Script.
 
 ## Benutzung
 
