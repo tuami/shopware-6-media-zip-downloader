@@ -22,6 +22,8 @@ Andere CSS-/JavaScript-Injection-Erweiterungen funktionieren ebenfalls, wenn sie
 
 Medienordner öffnen → mindestens **zwei Bilder auswählen** → rechts unter **Aktionen** auf **„Auswahl als ZIP“** klicken.
 
+**Tipp:** Mehrere Bilder kannst du mit gedrückter **Shift-Taste (Umschalttaste)** auswählen.
+
 Der Download startet automatisch. Währenddessen im geöffneten Ordner bleiben.
 
 **Hinweis:** Für die deutsche Shopware-6-Oberfläche und Bilder aus einem Ordner. Zuerst mit zwei Bildern ausprobieren; große Auswahlen in kleinere Gruppen teilen.
